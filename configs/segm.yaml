@@ -3,8 +3,8 @@ settings:
   train_anns: "./data/multi-person/annotations/train.csv"
   val_anns: "./data/multi-person/annotations/val.csv"
 
-  checkpoint_path: 'weights' #"/content/drive/MyDrive/weights/Places365 Inpainting/unet/phase 1"
-  sample_folder: 'sample' #"/content/drive/MyDrive/results/Places365 Inpainting/unet/phase 1"
+  checkpoint_path: 'weights'
+  sample_folder: 'sample'
 
   cuda: True
   lr: 0.001

@@ -1,7 +1,7 @@
 settings:
   root_dir: "./data/multi-person/images"
-  checkpoint_path: "/content/drive/MyDrive/weights/Image Inpainting/facemask/phase 2"
-  sample_folder: "/content/drive/MyDrive/results/Image Inpainting/facemask/phase 2"
+  checkpoint_path: ""
+  sample_folder: ""
 
   cuda: True
   lr: 0.001
