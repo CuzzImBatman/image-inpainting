@@ -37,6 +37,7 @@ class Places365Dataset(data.Dataset):
             times = self.cfg.times)
         
         img = torch.from_numpy(img.astype(np.float32) / 255.0).permute(2, 0, 1).contiguous()
+        mask = cv2.resize(mask, (self.cfg.img_size, self.cfg.img_size))
         mask = torch.from_numpy(mask.astype(np.float32)).contiguous()
 
         return img, mask
@@ -85,8 +86,8 @@ class FacemaskDataset(data.Dataset):
         self.root_dir = cfg.root_dir
         self.cfg = cfg
 
-        self.mask_folder = os.path.join(self.root_dir, 'celeba512_30k_binary')
-        self.img_folder = os.path.join(self.root_dir, 'celeba512_30k')
+        self.mask_folder = os.path.join(self.root_dir, 'binary')
+        self.img_folder = os.path.join(self.root_dir, 'masked')
         self.load_images()
         
     def load_images(self):
@@ -94,7 +95,7 @@ class FacemaskDataset(data.Dataset):
         idx = 0
         img_paths = sorted(os.listdir(self.img_folder))
         for img_name in img_paths:
-            mask_name = img_name.split('.')[0]+'_binary.jpg'
+            mask_name = img_name.split('.')[0]+'_N95.jpg'
             img_path = os.path.join(self.img_folder, img_name)
             mask_path = os.path.join(self.mask_folder, mask_name)
             if os.path.isfile(mask_path): 
@@ -108,6 +109,7 @@ class FacemaskDataset(data.Dataset):
         
         
         mask = cv2.imread(mask_path, 0)
+        mask = cv2.resize(mask, (self.cfg.img_size, self.cfg.img_size))
         
         mask[mask>0]=1.0
         mask = np.expand_dims(mask, axis=0)

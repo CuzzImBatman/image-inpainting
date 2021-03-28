@@ -38,6 +38,7 @@ class FacemaskSegDataset(data.Dataset):
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         img = cv2.resize(img, (self.cfg.img_size, self.cfg.img_size))
         mask = cv2.imread(mask_path, 0)
+        mask = cv2.resize(mask, (self.cfg.img_size, self.cfg.img_size))
         mask[mask>0]=1.0
         mask = np.expand_dims(mask, axis=0)
     

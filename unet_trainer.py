@@ -62,7 +62,7 @@ class UNetTrainer():
         self.start_iter = iters
         self.iters = 0
         self.num_epochs = cfg.num_epochs
-        self.device = torch.device('cuda:1' if cfg.cuda else 'cpu')
+        self.device = torch.device('cuda' if cfg.cuda else 'cpu')
 
         trainset = FacemaskSegDataset(cfg)
         valset = FacemaskSegDataset(cfg, train=False)
