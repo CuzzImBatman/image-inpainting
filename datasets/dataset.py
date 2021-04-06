@@ -95,7 +95,7 @@ class FacemaskDataset(data.Dataset):
         idx = 0
         img_paths = sorted(os.listdir(self.img_folder))
         for img_name in img_paths:
-            mask_name = img_name
+            mask_name = img_name + '_N95'
             img_path = os.path.join(self.img_folder, img_name)
             mask_path = os.path.join(self.mask_folder, mask_name)
             if os.path.isfile(mask_path): 
