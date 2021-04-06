@@ -1,7 +1,7 @@
 settings:
-  root_dir: "./data/multi-person/images"
-  checkpoint_path: ""
-  sample_folder: ""
+  root_dir: "./data/multi_person/images"
+  checkpoint_path: "/content/drive/MyDrive/Result/Checkpoint"
+  sample_folder: "/content/drive/MyDrive/Result/Sample"
 
   cuda: True
   lr: 0.001

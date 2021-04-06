@@ -87,7 +87,7 @@ class FacemaskDataset(data.Dataset):
         self.cfg = cfg
 
         self.mask_folder = os.path.join(self.root_dir, 'binary')
-        self.img_folder = os.path.join(self.root_dir, 'masked')
+        self.img_folder = os.path.join(self.root_dir, 'original')
         self.load_images()
         
     def load_images(self):
