@@ -4,7 +4,7 @@ settings:
   sample_folder: "/content/drive/MyDrive/Result/Sample"
 
   cuda: True
-  lr: 0.001
+  lr: 0.0001
   batch_size: 2
   num_workers: 4
 
